@@ -641,7 +641,7 @@ function renderCourses() {
   };
 
   grid.innerHTML = filtered.map(c => `
-    <article class="edification-course-card" id="card-${c.id}">
+    <article class="armor-course-card" id="card-${c.id}">
       <div class="course-card-top" style="background-image: url('${categoryImages[c.category] || "./training-lab-wide.jpg"}');">
         <span class="course-category-badge">${c.category.toUpperCase()}</span>
         <span class="course-duration-badge">${c.duration || "Verified Track"}</span>
@@ -713,25 +713,25 @@ function openCourseModal(courseId) {
       <div>
         <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
           <span class="course-category-badge" style="position: static;">${course.category.toUpperCase()}</span>
-          <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">${course.duration || "Verified Track"}</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--color-slate-muted);">${course.duration || "Verified Track"}</span>
         </div>
-        <h2 style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--color-navy); margin-top: 8px; margin-bottom: 6px;">${course.name}</h2>
-        <p style="font-size: 14px; color: var(--text-body); max-width: 540px;">${course.description || "Industry accredited training program designed for practical execution."}</p>
+        <h2 style="font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--color-navy); margin-top: 8px; margin-bottom: 6px;">${course.name}</h2>
+        <p style="font-size: 14px; color: var(--color-slate-body); max-width: 540px;">${course.description || "Industry accredited training program designed for practical execution."}</p>
       </div>
-      <button type="button" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-heading);" onclick="closeCourseModal()" aria-label="Close modal">&times;</button>
+      <button type="button" style="background: none; border: none; font-size: 26px; cursor: pointer; color: var(--color-slate-dark);" onclick="closeCourseModal()" aria-label="Close modal">&times;</button>
     </div>
 
     <div style="padding: 24px;">
       ${course.eligibility ? `
         <div style="margin-bottom: 20px; background: var(--bg-alt); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);">
           <strong style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-navy);">Eligibility:</strong>
-          <span style="font-size: 14px; color: var(--text-body); margin-left: 6px;">${course.eligibility}</span>
+          <span style="font-size: 14px; color: var(--color-slate-body); margin-left: 6px;">${course.eligibility}</span>
         </div>
       ` : ""}
 
       ${course.tools && course.tools.length > 0 ? `
         <div style="margin-bottom: 22px;">
-          <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; color: var(--color-navy);">Software & Tools Covered</h4>
+          <h4 style="font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; color: var(--color-navy);">Software & Tools Covered</h4>
           <div style="display: flex; flex-wrap: wrap; gap: 6px;">
             ${course.tools.map(t => `<span class="tool-chip" style="font-size: 12px; padding: 4px 10px;">${t}</span>`).join("")}
           </div>
@@ -740,12 +740,12 @@ function openCourseModal(courseId) {
 
       ${course.modules && course.modules.length > 0 ? `
         <div>
-          <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: var(--color-navy);">Curriculum Modules</h4>
+          <h4 style="font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: var(--color-navy);">Curriculum Modules</h4>
           <div style="display: grid; gap: 8px;">
             ${course.modules.map((m, idx) => `
-              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 6px;">
-                <span style="font-size: 12px; font-weight: 700; color: var(--color-navy); margin-top: 2px;">0${idx+1}.</span>
-                <span style="font-size: 14px; color: var(--text-body); font-weight: 500;">${m}</span>
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 8px;">
+                <span style="font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--color-navy); margin-top: 3px;">0${idx+1}.</span>
+                <span style="font-size: 13.5px; color: var(--color-slate-body); font-weight: 500;">${m}</span>
               </div>
             `).join("")}
           </div>
@@ -754,7 +754,7 @@ function openCourseModal(courseId) {
     </div>
 
     <div style="padding: 16px 24px; background: #FAFAFA; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
-      <div style="font-size: 13px; color: var(--text-muted);">
+      <div style="font-size: 13px; color: var(--color-slate-muted);">
         Certified at G-TEC Ottappalam • JRJ Complex
       </div>
       <div style="display: flex; gap: 10px;">
