@@ -1,62 +1,67 @@
 /* ==========================================================================
-   G-TEC EDUCATION OTTAPPALAM — ARMOR-BD DESIGN SYSTEM
-   Visual Architecture Inspired by https://www.armor-bd.com
+   G-TEC EDUCATION OTTAPPALAM — PREMIUM DESIGN SYSTEM
+   Visual Architecture Inspired by Armor-BD (https://www.armor-bd.com/)
+   Core Brand Identity: Official G-TEC Blue (#014085) sampled from logo
    - Display Typography: Unbounded (Tech-Authoritative, Modern Geometric)
-   - Body & UI Typography: Manrope (Ultra-clean, High Legibility)
-   - Disciplined Brand Palette: G-TEC Deep Navy (#073B70), Rich Slate (#111827),
-     Warm Porcelain (#FAEBE3), and Vibrant Coral-Red/Orange Accent (#FF1025 / #EA580C).
-   - Light Canvas: #FAFAF7 / #FFFFFF. Zero color chaos.
+   - Body & UI Typography: Manrope (Ultra-clean, High Legibility Sans)
+   - Brand Palette: Official G-TEC Blue (#014085), Deep Navy (#061833),
+     Pale Blue Surfaces (#EBF3FC / #F0F5FA), Cool Off-White (#F8FAFC),
+     and Crisp White (#FFFFFF).
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;500;600;700;800;900&family=Manrope:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  /* Typography */
-  --font-display: 'Unbounded', sans-serif;
-  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  /* ========================================================================
+     G-TEC OFFICIAL BRAND TOKENS (ACCURATELY SAMPLED FROM OFFICIAL LOGO)
+     ======================================================================== */
+  --color-gtec-blue: #014085;         /* Primary Official G-TEC Blue (Logo Sampled) */
+  --color-gtec-blue-hover: #013166;   /* Darkened for interactive hover states */
+  --color-gtec-blue-light: #EBF3FC;   /* Pale Blue supporting surface */
+  --color-gtec-blue-tint: #F2F7FD;    /* Ultra-subtle section background */
+  --color-gtec-blue-border: #C8DCF0;  /* Subtle brand border */
 
-  /* Strict Disciplined Palette */
-  --color-navy: #073B70;              /* Primary G-TEC Navy */
-  --color-navy-dark: #0A1C36;         /* Deep Navy for Grounded Panels & Footer */
-  --color-slate-dark: #111827;        /* Rich Dark Charcoal */
-  --color-slate-body: #374151;        /* Primary Neutral Body Text */
-  --color-slate-muted: #6B7280;       /* Metadata, captions, secondary text */
+  --color-navy: var(--color-gtec-blue);       /* Alias to Primary G-TEC Blue */
+  --color-navy-hover: var(--color-gtec-blue-hover);
+  --color-navy-dark: #061833;         /* Grounded Deep Navy for footer & contrast */
+  --color-navy-deep: #0A1E40;         /* Secondary deep tone */
+  
+  --color-slate-dark: #0F172A;        /* Rich Charcoal for Headings */
+  --color-slate-body: #334155;        /* Crisp, highly legible body copy */
+  --color-slate-muted: #64748B;       /* Secondary text, metadata, captions */
 
-  /* Single Cohesive Accent (Armor-BD inspired vibrant warm accent) */
-  --color-accent: #FF1025;            /* G-TEC Brand Red */
-  --color-accent-orange: #EA580C;     /* Warm Accent from Armor-BD */
-  --color-accent-gradient: linear-gradient(135deg, #FF1025 0%, #EA580C 100%);
-  --color-accent-light: #FFF1EE;
+  --color-logo-red: #FD0100;          /* Official Logo Red (used with high restraint) */
   
-  /* Armor-BD Warm Base Surface */
-  --color-porcelain: #FAEBE3;
-  --color-porcelain-light: #FDF9F7;
-  
-  /* WhatsApp */
-  --color-whatsapp: #25D366;
+  --color-whatsapp: #25D366;          /* Official WhatsApp Brand */
   --color-whatsapp-hover: #1EBE5D;
 
   /* Canvas & Surfaces */
-  --bg-page: #FAFAF7;
+  --bg-page: #FFFFFF;                 /* Pure crisp white canvas */
+  --bg-subtle: #F8FAFC;               /* Cool off-white alternate surface */
+  --bg-alt: #F1F5F9;                  /* Neutral alternate surface */
   --bg-card: #FFFFFF;
-  --bg-alt: #F4F6F9;
-  --border-color: #E5E7EB;
-  --border-subtle: #F0F2F5;
+  --bg-pale-blue: #F0F5FA;
+  --border-color: #E2E8F0;
+  --border-subtle: #EDF2F7;
 
-  /* Radii */
+  /* Typography */
+  --font-display: 'Unbounded', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* Geometry & Spacing Scale */
+  --container-width: 1240px;
   --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 16px;
   --radius-xl: 24px;
   --radius-full: 9999px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04);
-  --shadow-md: 0 4px 16px rgba(17, 24, 39, 0.06);
-  --shadow-lg: 0 12px 32px rgba(17, 24, 39, 0.08);
-  --shadow-xl: 0 20px 48px rgba(17, 24, 39, 0.12);
-
-  --container-width: 1240px;
+  /* Elevation & Shadows */
+  --shadow-sm: 0 1px 3px rgba(1, 64, 133, 0.04);
+  --shadow-md: 0 4px 20px rgba(1, 64, 133, 0.06);
+  --shadow-lg: 0 12px 32px rgba(1, 64, 133, 0.08);
+  --shadow-xl: 0 20px 48px rgba(6, 24, 51, 0.12);
+  --shadow-blue-glow: 0 8px 24px rgba(1, 64, 133, 0.22);
 }
 
 /* ==========================================================================
@@ -124,20 +129,26 @@ img {
 }
 
 .section {
-  padding-top: 90px;
-  padding-bottom: 90px;
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
 .section-alt {
-  background-color: var(--color-porcelain-light);
+  background-color: var(--bg-subtle);
   border-top: 1px solid var(--border-color);
   border-bottom: 1px solid var(--border-color);
+}
+
+.section-pale-blue {
+  background-color: var(--bg-pale-blue);
+  border-top: 1px solid var(--color-gtec-blue-border);
+  border-bottom: 1px solid var(--color-gtec-blue-border);
 }
 
 .section-title-wrap {
   text-align: center;
   max-width: 720px;
-  margin: 0 auto 50px;
+  margin: 0 auto 52px;
 }
 
 .section-subtitle-tag {
@@ -146,19 +157,20 @@ img {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: var(--color-accent-orange);
-  background: var(--color-porcelain);
+  color: var(--color-gtec-blue);
+  background: var(--color-gtec-blue-light);
   padding: 6px 14px;
   border-radius: var(--radius-full);
   display: inline-block;
   margin-bottom: 14px;
+  border: 1px solid var(--color-gtec-blue-border);
 }
 
 .section-main-title {
   font-family: var(--font-display);
   font-size: 36px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 14px;
   line-height: 1.25;
 }
@@ -171,7 +183,7 @@ img {
 }
 
 /* ==========================================================================
-   ARMOR-BD PILL BUTTONS & CONTROLS
+   ARMOR-BD PILL BUTTONS & CONTROLS (G-TEC BLUE LED)
    ========================================================================== */
 .btn {
   display: inline-flex;
@@ -190,25 +202,26 @@ img {
   line-height: 1;
 }
 
+/* Primary G-TEC Blue Button */
 .btn-primary {
-  background: var(--color-accent-gradient);
+  background-color: var(--color-gtec-blue);
   color: #FFFFFF;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.25);
+  box-shadow: var(--shadow-blue-glow);
 }
 
 .btn-primary:hover {
-  opacity: 0.92;
+  background-color: var(--color-gtec-blue-hover);
   transform: translateY(-1px);
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 10px 28px rgba(1, 64, 133, 0.32);
 }
 
 .btn-navy {
-  background-color: var(--color-navy);
+  background-color: var(--color-navy-dark);
   color: #FFFFFF;
 }
 
 .btn-navy:hover {
-  background-color: #052A50;
+  background-color: #041024;
   transform: translateY(-1px);
 }
 
@@ -219,9 +232,9 @@ img {
 }
 
 .btn-outline:hover {
-  background-color: var(--color-porcelain-light);
-  border-color: #D1D5DB;
-  color: var(--color-navy);
+  background-color: var(--color-gtec-blue-light);
+  border-color: var(--color-gtec-blue-border);
+  color: var(--color-gtec-blue);
 }
 
 .btn-whatsapp {
@@ -245,16 +258,16 @@ img {
 }
 
 /* ==========================================================================
-   STICKY HEADER (ARMOR-BD FROSTED GLASS BAR)
+   STICKY FROSTED HEADER (ARMOR-BD NAVIGATION ARCHITECTURE)
    ========================================================================== */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: rgba(255, 255, 255, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(1, 64, 133, 0.08);
   transition: all 0.3s ease;
 }
 
@@ -294,7 +307,7 @@ img {
 }
 
 .nav-link:hover, .nav-link.active {
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
 }
 
 .nav-link.active::after {
@@ -304,7 +317,7 @@ img {
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: var(--color-accent);
+  background-color: var(--color-gtec-blue);
   border-radius: 2px;
 }
 
@@ -329,7 +342,7 @@ img {
 .mobile-nav-drawer {
   position: fixed;
   inset: 0;
-  background-color: rgba(17, 24, 39, 0.6);
+  background-color: rgba(6, 24, 51, 0.6);
   z-index: 1100;
   visibility: hidden;
   opacity: 0;
@@ -363,14 +376,14 @@ img {
 }
 
 /* ==========================================================================
-   ARMOR-BD HERO SECTION
+   HERO SECTION (ARMOR-BD EDITORIAL ARCHITECTURE + G-TEC IDENTITY)
    ========================================================================== */
 .hero-section {
   position: relative;
-  padding-top: 70px;
-  padding-bottom: 80px;
-  background: radial-gradient(circle at top right, rgba(250, 235, 227, 0.5) 0%, transparent 60%),
-              radial-gradient(circle at bottom left, rgba(7, 59, 112, 0.03) 0%, transparent 60%);
+  padding-top: 72px;
+  padding-bottom: 84px;
+  background: radial-gradient(circle at top right, rgba(1, 64, 133, 0.05) 0%, transparent 60%),
+              radial-gradient(circle at bottom left, rgba(235, 243, 252, 0.8) 0%, transparent 60%);
   overflow: hidden;
 }
 
@@ -390,33 +403,34 @@ img {
   font-weight: 700;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: var(--color-accent-orange);
-  background-color: var(--color-porcelain);
+  color: var(--color-gtec-blue);
+  background-color: var(--color-gtec-blue-light);
   padding: 6px 16px;
   border-radius: var(--radius-full);
   margin-bottom: 20px;
+  border: 1px solid var(--color-gtec-blue-border);
 }
 
 .hero-eyebrow-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--color-accent);
+  background-color: var(--color-logo-red);
   border-radius: 50%;
   display: inline-block;
-  animation: pulse 2s infinite;
+  animation: pulse-red 2s infinite;
 }
 
-@keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 16, 37, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(255, 16, 37, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 16, 37, 0); }
+@keyframes pulse-red {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 1, 0, 0.7); }
+  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(253, 1, 0, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(253, 1, 0, 0); }
 }
 
 .hero-title {
   font-family: var(--font-display);
   font-size: 46px;
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   line-height: 1.15;
   margin-bottom: 20px;
   letter-spacing: -0.03em;
@@ -457,7 +471,7 @@ img {
   font-family: var(--font-display);
   font-size: 26px;
   font-weight: 800;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   line-height: 1.1;
   margin-bottom: 4px;
 }
@@ -497,7 +511,7 @@ img {
   -webkit-backdrop-filter: blur(12px);
   padding: 14px 18px;
   border-radius: var(--radius-lg);
-  border: 1px solid rgba(229, 231, 235, 0.8);
+  border: 1px solid rgba(200, 220, 240, 0.8);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -508,7 +522,7 @@ img {
   font-family: var(--font-display);
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
 }
 
 .hero-badge-sub {
@@ -539,7 +553,7 @@ img {
 
 .solution-card:hover {
   transform: translateY(-4px);
-  border-color: #CBD5E1;
+  border-color: var(--color-gtec-blue-border);
   box-shadow: var(--shadow-lg);
 }
 
@@ -552,28 +566,28 @@ img {
 
 .solution-index {
   font-family: var(--font-display);
-  font-size: 14px;
+  font-size: 13.5px;
   font-weight: 700;
-  color: var(--color-slate-muted);
+  color: var(--color-gtec-blue);
 }
 
 .solution-icon-box {
   width: 52px;
   height: 52px;
   border-radius: var(--radius-lg);
-  background-color: var(--color-porcelain);
+  background-color: var(--color-gtec-blue-light);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 24px;
-  color: var(--color-accent-orange);
+  color: var(--color-gtec-blue);
 }
 
 .solution-title {
   font-family: var(--font-display);
   font-size: 18px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 10px;
   line-height: 1.3;
 }
@@ -598,7 +612,7 @@ img {
   font-family: var(--font-body);
   font-size: 11.5px;
   font-weight: 600;
-  background-color: var(--bg-alt);
+  background-color: var(--bg-subtle);
   color: var(--color-slate-body);
   padding: 4px 10px;
   border-radius: var(--radius-full);
@@ -609,7 +623,7 @@ img {
   font-family: var(--font-body);
   font-size: 13.5px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -618,7 +632,7 @@ img {
 
 .solution-action-btn:hover {
   gap: 10px;
-  color: var(--color-accent);
+  color: var(--color-gtec-blue-hover);
 }
 
 /* ==========================================================================
@@ -652,15 +666,16 @@ img {
 }
 
 .course-tab-pill:hover {
-  background-color: var(--color-porcelain-light);
-  border-color: #D1D5DB;
+  background-color: var(--color-gtec-blue-light);
+  border-color: var(--color-gtec-blue-border);
+  color: var(--color-gtec-blue);
 }
 
 .course-tab-pill.active {
-  background: var(--color-navy);
+  background: var(--color-gtec-blue);
   color: #FFFFFF;
-  border-color: var(--color-navy);
-  box-shadow: 0 4px 12px rgba(7, 59, 112, 0.2);
+  border-color: var(--color-gtec-blue);
+  box-shadow: 0 4px 14px rgba(1, 64, 133, 0.25);
 }
 
 .course-search-capsule {
@@ -694,8 +709,8 @@ img {
 }
 
 .course-search-input:focus {
-  border-color: var(--color-navy);
-  box-shadow: 0 0 0 3px rgba(7, 59, 112, 0.1);
+  border-color: var(--color-gtec-blue);
+  box-shadow: 0 0 0 3px rgba(1, 64, 133, 0.12);
 }
 
 /* Course Cards Grid */
@@ -717,7 +732,7 @@ img {
 
 .edification-course-card:hover, .armor-course-card:hover {
   transform: translateY(-4px);
-  border-color: #CBD5E1;
+  border-color: var(--color-gtec-blue-border);
   box-shadow: var(--shadow-lg);
 }
 
@@ -736,7 +751,7 @@ img {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10, 28, 54, 0.4) 0%, rgba(10, 28, 54, 0.8) 100%);
+  background: linear-gradient(180deg, rgba(6, 24, 51, 0.35) 0%, rgba(6, 24, 51, 0.8) 100%);
 }
 
 .course-category-badge {
@@ -748,7 +763,7 @@ img {
   letter-spacing: 1px;
   text-transform: uppercase;
   background: #FFFFFF;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   padding: 4px 12px;
   border-radius: var(--radius-full);
 }
@@ -759,7 +774,7 @@ img {
   font-family: var(--font-body);
   font-size: 11px;
   font-weight: 600;
-  background: rgba(0, 0, 0, 0.55);
+  background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(6px);
   color: #FFFFFF;
   padding: 4px 10px;
@@ -777,13 +792,13 @@ img {
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 10px;
   line-height: 1.35;
 }
 
 .course-card-body h3 a:hover {
-  color: var(--color-accent);
+  color: var(--color-gtec-blue-hover);
 }
 
 .course-card-desc {
@@ -806,7 +821,7 @@ img {
   font-family: var(--font-body);
   font-size: 11.5px;
   font-weight: 600;
-  background-color: var(--bg-alt);
+  background-color: var(--bg-subtle);
   color: var(--color-slate-dark);
   padding: 4px 10px;
   border-radius: var(--radius-sm);
@@ -842,7 +857,7 @@ img {
 
 .feature-card:hover {
   transform: translateY(-4px);
-  border-color: #CBD5E1;
+  border-color: var(--color-gtec-blue-border);
   box-shadow: var(--shadow-lg);
 }
 
@@ -850,19 +865,20 @@ img {
   width: 56px;
   height: 56px;
   border-radius: var(--radius-lg);
-  background-color: var(--color-porcelain);
+  background-color: var(--color-gtec-blue-light);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 26px;
   margin-bottom: 20px;
+  color: var(--color-gtec-blue);
 }
 
 .feature-card h4 {
   font-family: var(--font-display);
   font-size: 17px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 10px;
 }
 
@@ -894,6 +910,7 @@ img {
 .campus-thumb-card:hover {
   transform: translateY(-4px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--color-gtec-blue-border);
 }
 
 .campus-thumb-card img {
@@ -915,7 +932,7 @@ img {
   font-family: var(--font-display);
   font-size: 16px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 8px;
 }
 
@@ -956,19 +973,20 @@ img {
   width: 44px;
   height: 44px;
   border-radius: var(--radius-md);
-  background-color: var(--color-porcelain);
+  background-color: var(--color-gtec-blue-light);
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 20px;
   flex-shrink: 0;
+  color: var(--color-gtec-blue);
 }
 
 .contact-info-entry h5 {
   font-family: var(--font-display);
   font-size: 14px;
   font-weight: 700;
-  color: var(--color-navy);
+  color: var(--color-gtec-blue);
   margin-bottom: 4px;
 }
 
@@ -1000,16 +1018,16 @@ img {
 .site-footer {
   background-color: var(--color-navy-dark);
   color: #FFFFFF;
-  padding-top: 70px;
-  padding-bottom: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 72px;
+  padding-bottom: 32px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .footer-columns-grid {
   display: grid;
   grid-template-columns: 1.5fr 1fr 1fr 1.25fr;
   gap: 40px;
-  margin-bottom: 50px;
+  margin-bottom: 52px;
 }
 
 .footer-col h5 {
@@ -1041,7 +1059,7 @@ img {
 
 .footer-bottom-strap {
   padding-top: 25px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1058,7 +1076,7 @@ img {
 .modal-overlay {
   position: fixed;
   inset: 0;
-  background-color: rgba(10, 28, 54, 0.7);
+  background-color: rgba(6, 24, 51, 0.72);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   z-index: 2000;
