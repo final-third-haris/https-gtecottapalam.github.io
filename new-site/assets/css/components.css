@@ -409,10 +409,10 @@
   background-color: rgba(1, 64, 133, 0.32);
   border: 1px solid rgba(96, 165, 250, 0.4);
   border-radius: var(--radius-full);
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: 11px;
   font-weight: 800;
-  letter-spacing: 0.16em;
+  letter-spacing: var(--tracking-widest);
   text-transform: uppercase;
   color: #BAE6FD;
   margin-bottom: 22px;
@@ -423,9 +423,9 @@
 .hero-title {
   font-family: var(--font-display);
   font-size: var(--fs-hero);
-  font-weight: 900;
-  line-height: var(--lh-tight);
-  letter-spacing: var(--tracking-tight);
+  font-weight: 800;
+  line-height: 1.04;
+  letter-spacing: var(--tracking-tighter);
   color: #FFFFFF;
   margin-bottom: 22px;
 }
@@ -448,6 +448,7 @@
   color: rgba(255, 255, 255, 0.84);
   font-size: var(--fs-body-lg);
   line-height: var(--lh-relaxed);
+  letter-spacing: var(--tracking-normal);
   max-width: 530px;
   margin-bottom: 32px;
 }
@@ -487,7 +488,9 @@
 .hero-metric-val {
   font-family: var(--font-display);
   font-size: clamp(1.4rem, 2vw, 1.85rem);
-  font-weight: 900;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
   color: #FFFFFF;
   line-height: 1.1;
   margin-bottom: 4px;
@@ -496,7 +499,8 @@
 .hero-metric-lbl {
   font-family: var(--font-body);
   font-size: 11.5px;
-  font-weight: 600;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.35;
 }
