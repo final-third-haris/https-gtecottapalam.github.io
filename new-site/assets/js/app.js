@@ -383,27 +383,213 @@ function initApp() {
     });
   });
 
-  // Quick Interactive Admissions Callback Form
+  // ========================================================================
+  // 7. ROBUST ADMISSIONS & SYLLABUS REQUEST DESK ENGINE
+  // ========================================================================
   const admissionsForm = document.getElementById('admissions-form');
-  const successBanner = document.getElementById('admissions-success');
+  const confirmationCard = document.getElementById('admissions-confirmation');
+  const nameInput = document.getElementById('student-name');
+  const phoneInput = document.getElementById('student-phone');
+  const courseInput = document.getElementById('course-interest');
+  const timingInput = document.getElementById('batch-timing');
+  const notesInput = document.getElementById('student-notes');
+
+  const groupName = document.getElementById('group-student-name');
+  const groupPhone = document.getElementById('group-student-phone');
+  const groupCourse = document.getElementById('group-course-interest');
+
+  const confirmNameEl = document.getElementById('confirm-name');
+  const confirmPhoneEl = document.getElementById('confirm-phone');
+  const confirmCourseEl = document.getElementById('confirm-course');
+  const confirmTimingEl = document.getElementById('confirm-timing');
+  const launchWaBtn = document.getElementById('btn-launch-wa');
+  const copyBtn = document.getElementById('btn-copy-enquiry');
+  const copyBtnText = document.getElementById('copy-btn-text');
+  const resetFormBtn = document.getElementById('btn-reset-form');
+  const submitBtn = document.getElementById('btn-submit-admissions');
+
+  let lastPreparedMessage = '';
+
+  // Real-time Field Validation Helpers
+  function validateName() {
+    if (!nameInput || !groupName) return true;
+    const val = nameInput.value.trim();
+    const isValid = val.length >= 2;
+    if (!isValid) {
+      groupName.classList.add('is-invalid');
+      nameInput.classList.add('has-error');
+      nameInput.setAttribute('aria-invalid', 'true');
+    } else {
+      groupName.classList.remove('is-invalid');
+      nameInput.classList.remove('has-error');
+      nameInput.removeAttribute('aria-invalid');
+    }
+    return isValid;
+  }
+
+  function validatePhone() {
+    if (!phoneInput || !groupPhone) return true;
+    const rawVal = phoneInput.value.trim();
+    const digitsOnly = rawVal.replace(/\D/g, '');
+    const isValid = digitsOnly.length >= 10 && digitsOnly.length <= 15;
+    if (!isValid) {
+      groupPhone.classList.add('is-invalid');
+      phoneInput.classList.add('has-error');
+      phoneInput.setAttribute('aria-invalid', 'true');
+    } else {
+      groupPhone.classList.remove('is-invalid');
+      phoneInput.classList.remove('has-error');
+      phoneInput.removeAttribute('aria-invalid');
+    }
+    return isValid;
+  }
+
+  function validateCourse() {
+    if (!courseInput || !groupCourse) return true;
+    const isValid = courseInput.value.trim() !== '';
+    if (!isValid) {
+      groupCourse.classList.add('is-invalid');
+      courseInput.classList.add('has-error');
+      courseInput.setAttribute('aria-invalid', 'true');
+    } else {
+      groupCourse.classList.remove('is-invalid');
+      courseInput.classList.remove('has-error');
+      courseInput.removeAttribute('aria-invalid');
+    }
+    return isValid;
+  }
+
+  // Attach live event listeners to clear errors on user typing
+  if (nameInput) {
+    nameInput.addEventListener('input', () => {
+      if (groupName && groupName.classList.contains('is-invalid')) validateName();
+    });
+    nameInput.addEventListener('blur', validateName);
+  }
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', () => {
+      if (groupPhone && groupPhone.classList.contains('is-invalid')) validatePhone();
+    });
+    phoneInput.addEventListener('blur', validatePhone);
+  }
+
+  if (courseInput) {
+    courseInput.addEventListener('change', validateCourse);
+  }
+
+  // Form Submission Handler
   if (admissionsForm) {
     admissionsForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      const name = document.getElementById('student-name')?.value.trim() || 'Prospective Student';
-      const phone = document.getElementById('student-phone')?.value.trim() || '';
-      const course = document.getElementById('course-interest')?.value || 'Technical Program';
-      const timing = document.getElementById('batch-timing')?.value || 'Flexible Timing';
 
-      const message = `Hello G-TEC Education Ottappalam,\nMy name is ${name} (Phone: ${phone}).\nI would like to enquire about admission for ${course}.\nPreferred Batch Timing: ${timing}.\nPlease share the verified syllabus, upcoming batch start dates, and fee structure.`;
+      const isNameValid = validateName();
+      const isPhoneValid = validatePhone();
+      const isCourseValid = validateCourse();
+
+      if (!isNameValid) {
+        nameInput?.focus();
+        return;
+      }
+      if (!isPhoneValid) {
+        phoneInput?.focus();
+        return;
+      }
+      if (!isCourseValid) {
+        courseInput?.focus();
+        return;
+      }
+
+      // Read sanitized values
+      const name = nameInput.value.trim();
+      const phone = phoneInput.value.trim();
+      const course = courseInput.value;
+      const timing = timingInput ? timingInput.value : 'Flexible Timing';
+      const notes = notesInput ? notesInput.value.trim() : '';
+
+      // Format structured message for G-TEC Ottappalam admissions desk
+      let message = `*G-TEC EDUCATION OTTAPPALAM — ADMISSIONS ENQUIRY*\n`;
+      message += `--------------------------------------\n`;
+      message += `• *Candidate Name:* ${name}\n`;
+      message += `• *Contact Mobile:* ${phone}\n`;
+      message += `• *Program of Interest:* ${course}\n`;
+      message += `• *Preferred Batch:* ${timing}\n`;
+      if (notes) {
+        message += `• *Questions/Notes:* ${notes}\n`;
+      }
+      message += `--------------------------------------\n`;
+      message += `Kindly share the certified syllabus PDF, upcoming batch calendar, and fee schedule. Thank you!`;
+
+      lastPreparedMessage = message;
       const waUrl = `${siteConfig.whatsappUrl}?text=${encodeURIComponent(message)}`;
 
-      if (successBanner) {
-        successBanner.classList.add('is-active');
+      // Update Confirmation Dossier in UI
+      if (confirmNameEl) confirmNameEl.textContent = name;
+      if (confirmPhoneEl) confirmPhoneEl.textContent = phone;
+      if (confirmCourseEl) confirmCourseEl.textContent = course;
+      if (confirmTimingEl) confirmTimingEl.textContent = timing;
+      if (launchWaBtn) launchWaBtn.href = waUrl;
+
+      // Provide visual submission progress
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<span>Preparing WhatsApp Desk... ⌛</span>';
       }
 
       setTimeout(() => {
+        // Hide form and activate confirmation card
+        admissionsForm.style.display = 'none';
+        if (confirmationCard) {
+          confirmationCard.classList.add('is-active');
+          confirmationCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<span>Send Admissions Enquiry via WhatsApp &rarr;</span>';
+        }
+
+        // Open WhatsApp in a clean new tab
         window.open(waUrl, '_blank', 'noopener,noreferrer');
-      }, 400);
+      }, 350);
+    });
+  }
+
+  // Copy Summary to Clipboard
+  if (copyBtn && copyBtnText) {
+    copyBtn.addEventListener('click', async () => {
+      try {
+        if (navigator.clipboard && lastPreparedMessage) {
+          await navigator.clipboard.writeText(lastPreparedMessage);
+          copyBtnText.textContent = 'Copied to Clipboard! ✓';
+          setTimeout(() => {
+            copyBtnText.textContent = 'Copy Summary to Clipboard 📋';
+          }, 2400);
+        } else {
+          // Fallback selection copy
+          copyBtnText.textContent = 'Text Ready ✓';
+        }
+      } catch (err) {
+        console.warn('Clipboard write error:', err);
+      }
+    });
+  }
+
+  // Reset / Submit Another Enquiry Button
+  if (resetFormBtn && admissionsForm && confirmationCard) {
+    resetFormBtn.addEventListener('click', () => {
+      confirmationCard.classList.remove('is-active');
+      admissionsForm.reset();
+      admissionsForm.style.display = 'flex';
+      nameInput?.focus();
+    });
+  }
+
+  // Back to Top Button
+  const backToTopBtn = document.getElementById('back-to-top-btn');
+  if (backToTopBtn) {
+    backToTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
   }
 
