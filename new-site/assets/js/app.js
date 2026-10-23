@@ -146,7 +146,7 @@ export function renderCourses() {
         <div>
           <span class="course-level-tag">${spotlightCourse.level || "Professional Certification"}</span>
           <h3 class="spotlight-title">
-            <a href="#courses" data-modal="${spotlightCourse.id}">${spotlightCourse.name}</a>
+            <a href="./course-detail.html?id=${spotlightCourse.id}">${spotlightCourse.name}</a>
           </h3>
           <p class="spotlight-desc">
             ${spotlightCourse.description || "Industry accredited training curriculum designed for live practical execution."}
@@ -174,8 +174,11 @@ export function renderCourses() {
         </div>
 
         <div class="spotlight-actions-row">
-          <button type="button" class="btn btn-navy btn-sm" data-modal="${spotlightCourse.id}">
-            <span>View Full Syllabus</span>
+          <a href="./course-detail.html?id=${spotlightCourse.id}" class="btn btn-navy btn-sm">
+            <span>View Full Syllabus &rarr;</span>
+          </a>
+          <button type="button" class="btn btn-outline btn-sm" data-modal="${spotlightCourse.id}">
+            <span>Quick Preview</span>
           </button>
           <a href="${siteConfig.whatsappUrl}?text=${encodeURIComponent('Hello G-TEC Ottappalam, I would like to know more about the ' + spotlightCourse.name + ' course. Please share admission details.')}" 
              target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="Enquire about ${spotlightCourse.name} on WhatsApp">
@@ -198,7 +201,7 @@ export function renderCourses() {
       <div class="course-card-body">
         <span class="course-level-tag">${c.level || "Professional Program"}</span>
         <h3 class="course-card-title">
-          <a href="#courses" data-modal="${c.id}">${c.name}</a>
+          <a href="./course-detail.html?id=${c.id}">${c.name}</a>
         </h3>
         <p class="course-card-desc">
           ${c.description || "Industry accredited training curriculum designed for live practical execution."}
@@ -224,15 +227,17 @@ export function renderCourses() {
       </div>
 
       <div class="course-card-footer">
-        <button type="button" class="btn btn-navy btn-sm" data-modal="${c.id}">
+        <a href="./course-detail.html?id=${c.id}" class="btn btn-navy btn-sm">
           <span>View Syllabus</span>
+        </a>
+        <button type="button" class="btn btn-outline btn-sm" data-modal="${c.id}" style="padding: 0 10px;" title="Quick Overview">
+          <span>Quick Preview</span>
         </button>
         <a href="${siteConfig.whatsappUrl}?text=${encodeURIComponent('Hello G-TEC Ottappalam, I would like to know more about the ' + c.name + ' course. Please share admission details.')}" 
            target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="Enquire about ${c.name} on WhatsApp">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.12-.533-1.821-.756-2.986-2.614-3.076-2.735-.09-.12-0.739-.983-.739-1.874 0-.891.468-1.328.635-1.507.167-.179.366-.224.488-.224.122 0 .245.002.35.008.113.006.262-.042.411.314.155.371.531 1.296.577 1.39.046.094.077.204.015.327-.061.123-.092.199-.183.307-.091.107-.193.24-.276.323-.092.092-.188.193-.081.378.107.184.475.786 1.021 1.272.703.627 1.296.822 1.48.914.184.092.292.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.154.414-.092.169.062 1.07.505 1.254.597.184.092.307.138.353.215.046.077.046.447-.098.852z"/>
           </svg>
-          <span>WhatsApp</span>
         </a>
       </div>
     </article>
