@@ -16,8 +16,8 @@
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://final-third-haris.github.io/gtec/" />
-  <meta property="og:title" content="G-TEC Education Ottappalam | Certified IT, CAD & Accounting Education" />
-  <meta property="og:description" content="Discover career-focused certification programs in Software Development, CAD, Multimedia, and Accounting at G-TEC Education Ottappalam." />
+  <meta property="og:title" content="G-TEC Education Ottappalam | Build Your Successful Future" />
+  <meta property="og:description" content="Certified training in Software Development, CAD, Multimedia, and Accounting at G-TEC Education Ottappalam." />
   <meta property="og:image" content="./reception-lounge.jpg" />
 
   <!-- Favicon -->
@@ -37,7 +37,7 @@
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
     "name": "G-TEC Education, Ottappalam",
-    "description": "Premier computer training institute in Ottappalam offering certified courses in Software Development, CAD Engineering, Multimedia, and Corporate Accounting.",
+    "description": "Leading computer training centre in Ottappalam providing certified programs in Software Development, CAD, Multimedia, and Corporate Accounting.",
     "url": "https://final-third-haris.github.io/gtec/",
     "logo": "https://final-third-haris.github.io/gtec/gtec-logo.png",
     "image": "https://final-third-haris.github.io/gtec/reception-lounge.jpg",
@@ -66,40 +66,44 @@
 </head>
 <body>
 
-  <!-- Solid Executive Header -->
+  <!-- Edification Header with Center Emblem Logo -->
   <header class="site-header">
     <div class="container header-container">
-      <a href="#hero" aria-label="G-TEC Education Ottappalam Home">
-        <img src="./gtec-logo.png" alt="G-TEC Education Ottappalam Logo" class="brand-logo-img" width="180" height="42" />
-      </a>
-
-      <nav class="nav-desktop" aria-label="Main Navigation">
+      
+      <!-- Left Navigation -->
+      <nav class="nav-flanking-list" aria-label="Primary Left Navigation">
+        <a href="#hero" class="nav-link active">Home</a>
+        <a href="#about" class="nav-link">About</a>
         <a href="#courses" class="nav-link">Courses</a>
-        <a href="#features" class="nav-link">Why G-TEC</a>
-        <a href="#campus" class="nav-link">Campus Facilities</a>
-        <a href="#about" class="nav-link">About Centre</a>
-        <a href="#contact" class="nav-link">Contact & Location</a>
       </nav>
 
+      <!-- Center Logo (Edification Style) -->
+      <div class="center-logo-link">
+        <a href="#hero" aria-label="G-TEC Education Ottappalam Home">
+          <img src="./gtec-logo.png" alt="G-TEC Education Logo" class="center-logo-img" width="170" height="48" />
+        </a>
+      </div>
+
+      <!-- Right Navigation -->
+      <nav class="nav-flanking-list" aria-label="Primary Right Navigation">
+        <a href="#features" class="nav-link">Why G-TEC</a>
+        <a href="#campus" class="nav-link">Campus</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+
+      <!-- Right Action Buttons -->
       <div class="header-actions">
         <a href="tel:+919995955501" class="btn btn-outline btn-sm hide-mobile" aria-label="Call G-TEC Ottappalam">
           <span>📞 9995955501</span>
         </a>
-        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm hide-mobile" aria-label="Chat on WhatsApp">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.12-.533-1.821-.756-2.986-2.614-3.076-2.735-.09-.12-0.739-.983-.739-1.874 0-.891.468-1.328.635-1.507.167-.179.366-.224.488-.224.122 0 .245.002.35.008.113.006.262-.042.411.314.155.371.531 1.296.577 1.39.046.094.077.204.015.327-.061.123-.092.199-.183.307-.091.107-.193.24-.276.323-.092.092-.188.193-.081.378.107.184.475.786 1.021 1.272.703.627 1.296.822 1.48.914.184.092.292.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.154.414-.092.169.062 1.07.505 1.254.597.184.092.307.138.353.215.046.077.046.447-.098.852z"/>
-          </svg>
+        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm hide-mobile" aria-label="Chat on WhatsApp">
           <span>WhatsApp</span>
         </a>
-        <a href="#courses" class="btn btn-primary btn-sm">Explore Courses</a>
         <button type="button" class="mobile-toggle" onclick="toggleMobileDrawer(true)" aria-label="Open navigation menu">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-          </svg>
+          ☰
         </button>
       </div>
+
     </div>
   </header>
 
@@ -108,23 +112,24 @@
     <div class="drawer-panel" onclick="event.stopPropagation()">
       <div>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
-          <img src="./gtec-logo.png" alt="G-TEC Logo" style="height: 38px; width: auto;" />
-          <button type="button" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;" onclick="toggleMobileDrawer(false)">&times;</button>
+          <img src="./gtec-logo.png" alt="G-TEC Logo" style="height: 40px; width: auto;" />
+          <button type="button" style="background: none; border: none; font-size: 24px; cursor: pointer;" onclick="toggleMobileDrawer(false)">&times;</button>
         </div>
-        <nav style="display: flex; flex-direction: column; gap: 1rem;">
+        <nav style="display: flex; flex-direction: column; gap: 1.25rem;">
+          <a href="#hero" class="nav-link" onclick="toggleMobileDrawer(false)">Home</a>
+          <a href="#about" class="nav-link" onclick="toggleMobileDrawer(false)">About</a>
           <a href="#courses" class="nav-link" onclick="toggleMobileDrawer(false)">Courses</a>
           <a href="#features" class="nav-link" onclick="toggleMobileDrawer(false)">Why G-TEC</a>
-          <a href="#campus" class="nav-link" onclick="toggleMobileDrawer(false)">Campus Facilities</a>
-          <a href="#about" class="nav-link" onclick="toggleMobileDrawer(false)">About Centre</a>
-          <a href="#contact" class="nav-link" onclick="toggleMobileDrawer(false)">Contact & Location</a>
+          <a href="#campus" class="nav-link" onclick="toggleMobileDrawer(false)">Campus</a>
+          <a href="#contact" class="nav-link" onclick="toggleMobileDrawer(false)">Contact</a>
         </nav>
       </div>
 
-      <div style="display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid var(--border-light); padding-top: 1.5rem;">
+      <div style="display: flex; flex-direction: column; gap: 0.75rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
         <a href="tel:+919995955501" class="btn btn-outline" style="width: 100%;">
           Call: +91 99959 55501
         </a>
-        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp" style="width: 100%;">
+        <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="width: 100%;">
           Chat on WhatsApp
         </a>
       </div>
@@ -133,329 +138,200 @@
 
   <main id="main-content">
 
-    <!-- HERO SECTION -->
-    <section class="hero-section" id="hero">
+    <!-- EDIFICATION HERO AREA (CENTERED, CINEMATIC OVERLAY, CAPSULE SEARCH) -->
+    <section class="hero-area" id="hero">
       <div class="container">
-        <div class="hero-grid">
+        <div class="hero-inner">
+          <span class="hero-admission-tag">ADMISSION'24-25</span>
           
-          <div>
-            <div class="hero-badge">
-              <span class="pulse-dot"></span>
-              <span>Ottappalam, Kerala • Admissions Open 2024–25</span>
-            </div>
+          <h1 class="hero-main-h1">
+            <span class="text-orange">Build your Successful</span><br />
+            Future with G-TEC Education
+          </h1>
 
-            <h1 class="hero-title">
-              Advance Your Career with Certified <span class="text-primary-brand">IT, CAD</span> & <span class="text-red-brand">Accounting</span> Training.
-            </h1>
-
-            <p class="hero-subtitle">
-              Industry-standard certification programs in Full-Stack Software Development, Architectural CAD, 3D Multimedia, and Corporate SAP Accounting with dedicated 1:1 computer lab practice at JRJ Complex, Ottappalam.
-            </p>
-
-            <div class="hero-cta-deck">
-              <a href="#courses" class="btn btn-primary">
-                <span>Explore Course Catalogue</span>
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <line x1="5" y1="12" x2="19" y2="12"></line>
-                  <polyline points="12 5 19 12 12 19"></polyline>
-                </svg>
-              </a>
-
-              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Education%20Ottappalam%2C%20I%20would%20like%20to%20enquire%20about%20course%20admissions." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.12-.533-1.821-.756-2.986-2.614-3.076-2.735-.09-.12-0.739-.983-.739-1.874 0-.891.468-1.328.635-1.507.167-.179.366-.224.488-.224.122 0 .245.002.35.008.113.006.262-.042.411.314.155.371.531 1.296.577 1.39.046.094.077.204.015.327-.061.123-.092.199-.183.307-.091.107-.193.24-.276.323-.092.092-.188.193-.081.378.107.184.475.786 1.021 1.272.703.627 1.296.822 1.48.914.184.092.292.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.154.414-.092.169.062 1.07.505 1.254.597.184.092.307.138.353.215.046.077.046.447-.098.852z"/>
-                </svg>
-                <span>WhatsApp Advisor</span>
-              </a>
-
-              <a href="tel:+919995955501" class="btn btn-outline">
-                <span>Call 9995955501</span>
-              </a>
-            </div>
-
-            <div class="trust-badges-row">
-              <div class="trust-badge-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>100% Practical Labs</span>
-              </div>
-              <div class="trust-badge-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>1:1 Dedicated PC Allocation</span>
-              </div>
-              <div class="trust-badge-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Certified Faculty Mentors</span>
-              </div>
-              <div class="trust-badge-item">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Global Curriculum</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Hero Media Card -->
-          <div class="hero-media-wrapper">
-            <div class="hero-image-card">
-              <img src="./reception-lounge.jpg" alt="G-TEC Education Ottappalam Reception and Counselling Centre" width="600" height="440" />
-              <div class="hero-image-caption-bar">
-                <div>
-                  <div class="caption-label">Reception & Counselling Lounge</div>
-                  <div class="caption-sub">Second Floor, JRJ Complex, Ottappalam Road</div>
-                </div>
-                <span class="section-tag red" style="margin-bottom: 0;">Verified Campus</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- METRICS STRIP -->
-    <section class="metrics-strip">
-      <div class="container">
-        <div class="metrics-grid">
-          <div class="metric-card">
-            <div class="metric-number">28+</div>
-            <div class="metric-label">Certified Programs</div>
-            <div class="metric-sub">Across 4 Technical Disciplines</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">1:1</div>
-            <div class="metric-label">Dedicated Computer Ratio</div>
-            <div class="metric-sub">Zero Machine Sharing in Labs</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">100%</div>
-            <div class="metric-label">Hands-On Practical Training</div>
-            <div class="metric-sub">Project-Driven Lab Learning</div>
-          </div>
-          <div class="metric-card">
-            <div class="metric-number">ISO</div>
-            <div class="metric-label">Quality Certified Framework</div>
-            <div class="metric-sub">Global Standardized Curriculum</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- COURSE CATALOGUE SECTION -->
-    <section class="section" id="courses">
-      <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag">Academic Disciplines</span>
-          <h2 class="section-title">Explore Verified Courses</h2>
-          <p class="section-desc">
-            All programs follow standardized curricula from the global G-TEC Education network, providing structured module progression, hands-on software labs, and professional certification.
+          <p class="hero-sub-p">
+            Find Your Preferred Courses & Improve Your Skills at Ottappalam Centre
           </p>
+
+          <!-- Centered Capsule Search Bar (Exact Edification Style) -->
+          <div class="hero-search-capsule">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="course-search-input" placeholder="Enter your keyword (e.g. Python, Revit, SAP, Graphic Design)..." aria-label="Search courses" />
+            <button type="button" class="btn-search" onclick="document.getElementById('courses').scrollIntoView({behavior: 'smooth'})">Search</button>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="hero-trust-strip">
+            <span>✓ 100% Practical Labs</span>
+            <span>✓ 1:1 Dedicated PC Station</span>
+            <span>✓ Certified Faculty Mentors</span>
+            <span>✓ Global Standardized Curriculum</span>
+          </div>
         </div>
-
-        <!-- Category Nav Filter Buttons -->
-        <div class="courses-category-nav" role="tablist">
-          <button type="button" class="category-filter-btn active" data-category="all" onclick="setCategory('all')">All Disciplines</button>
-          <button type="button" class="category-filter-btn" data-category="cad" onclick="setCategory('cad')">CAD & Engineering</button>
-          <button type="button" class="category-filter-btn" data-category="software" onclick="setCategory('software')">Software Development</button>
-          <button type="button" class="category-filter-btn" data-category="multimedia" onclick="setCategory('multimedia')">Multimedia & Animation</button>
-          <button type="button" class="category-filter-btn" data-category="accounting" onclick="setCategory('accounting')">Corporate Accounting & SAP</button>
-        </div>
-
-        <!-- Search Input -->
-        <div class="search-box-wrapper">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="11" cy="11" r="8"></circle>
-            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-          </svg>
-          <input type="text" id="course-search-input" placeholder="Search by software or skill (e.g., Python, Revit, SAP, Tally, Premiere)..." />
-        </div>
-
-        <!-- Course Cards Grid (Dynamically filtered + pre-rendered) -->
-        <div class="courses-cards-grid" id="courses-grid">
-          <!-- Fallback Pre-rendered Cards -->
-          <article class="course-card">
-            <div>
-              <div class="course-badge-row">
-                <span class="badge-tag cad">CAD</span>
-                <span class="duration-pill">3 Months</span>
-              </div>
-              <h3>Certificate Course in Revit Architecture</h3>
-              <p class="course-card-desc">Architectural BIM modeling, parametric family creation, construction documentation, and photorealistic 3D visualization.</p>
-              <div class="course-tools-group">
-                <span class="tool-tag">Autodesk Revit</span>
-                <span class="tool-tag">BIM Workflows</span>
-                <span class="tool-tag">3D Architecture</span>
-              </div>
-            </div>
-            <div class="course-card-actions">
-              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('cad-revit-architecture')">View Syllabus</button>
-              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Revit%20Architecture." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Enquire on WhatsApp</a>
-            </div>
-          </article>
-
-          <article class="course-card">
-            <div>
-              <div class="course-badge-row">
-                <span class="badge-tag software">SOFTWARE</span>
-                <span class="duration-pill">6 Months</span>
-              </div>
-              <h3>Full-Stack Web Developer - Python</h3>
-              <p class="course-card-desc">Comprehensive full-stack engineering with Python, Django, REST APIs, PostgreSQL, HTML5, CSS3, JavaScript, and Git version control.</p>
-              <div class="course-tools-group">
-                <span class="tool-tag">Python</span>
-                <span class="tool-tag">Django</span>
-                <span class="tool-tag">PostgreSQL</span>
-                <span class="tool-tag">REST APIs</span>
-              </div>
-            </div>
-            <div class="course-card-actions">
-              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('sw-python-fullstack')">View Syllabus</button>
-              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Python%20Full%20Stack." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Enquire on WhatsApp</a>
-            </div>
-          </article>
-
-          <article class="course-card">
-            <div>
-              <div class="course-badge-row">
-                <span class="badge-tag multimedia">MULTIMEDIA</span>
-                <span class="duration-pill">3 Months</span>
-              </div>
-              <h3>Diploma In Video Editing</h3>
-              <p class="course-card-desc">Professional non-linear video editing, color grading, multi-cam workflows, audio mastering, and broadcast exporting.</p>
-              <div class="course-tools-group">
-                <span class="tool-tag">Adobe Premiere Pro</span>
-                <span class="tool-tag">After Effects</span>
-                <span class="tool-tag">Audition</span>
-              </div>
-            </div>
-            <div class="course-card-actions">
-              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('mm-video-editing')">View Syllabus</button>
-              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Video%20Editing." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Enquire on WhatsApp</a>
-            </div>
-          </article>
-
-          <article class="course-card">
-            <div>
-              <div class="course-badge-row">
-                <span class="badge-tag accounting">ACCOUNTING</span>
-                <span class="duration-pill">3 Months</span>
-              </div>
-              <h3>Certificate in SAP Finance and Control (S/4 HANA)</h3>
-              <p class="course-card-desc">Enterprise financial accounting on the SAP S/4HANA ERP suite covering General Ledger, Accounts Payable, Receivable, and Asset Accounting.</p>
-              <div class="course-tools-group">
-                <span class="tool-tag">SAP S/4HANA</span>
-                <span class="tool-tag">SAP FICO</span>
-                <span class="tool-tag">General Ledger</span>
-              </div>
-            </div>
-            <div class="course-card-actions">
-              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('acc-sap-fico')">View Syllabus</button>
-              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20SAP%20FICO." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">Enquire on WhatsApp</a>
-            </div>
-          </article>
-        </div>
-
       </div>
     </section>
 
-    <!-- WHY CHOOSE G-TEC (TRUST ARCHITECTURE) -->
-    <section class="section section-alt" id="features">
+    <!-- WHY CHOOSE G-TEC (OVERLAPPING FEATURE STRIP) -->
+    <section class="section" style="padding-top: 0; padding-bottom: 70px;">
       <div class="container">
-        
-        <div class="section-header">
-          <span class="section-tag">Learning Methodology</span>
-          <h2 class="section-title">Why Choose G-TEC Ottappalam</h2>
-          <p class="section-desc">
-            We focus strictly on authentic technical competence, individual workstation practice, and structured mentoring to prepare students for real industry roles.
-          </p>
-        </div>
-
-        <div class="features-grid">
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">💻</div>
+        <div class="feature-cards-deck" id="features">
+          <div class="feature-item-card">
+            <div class="feature-icon-circle">💻</div>
             <h4>1:1 Dedicated PC Practice</h4>
-            <p>Every student receives their own individual high-performance workstation for every lab session. We maintain a strict zero-machine-sharing policy.</p>
+            <p>Every student trains on a dedicated individual workstation with zero sharing throughout practical lab hours.</p>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">📜</div>
+          <div class="feature-item-card">
+            <div class="feature-icon-circle">📜</div>
             <h4>Recognized Certification</h4>
-            <p>Earn accredited credentials from G-TEC’s global network, trusted by employers across India, the Middle East, and multinational IT firms.</p>
+            <p>Earn internationally acknowledged credentials from G-TEC’s global network, trusted by employers across India and abroad.</p>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">👨‍🏫</div>
-            <h4>Experienced Faculty Mentors</h4>
-            <p>Learn from certified instructors who provide direct personal attention, practical problem solving, and step-by-step guidance on live projects.</p>
+          <div class="feature-item-card">
+            <div class="feature-icon-circle">👨‍🏫</div>
+            <h4>Certified Faculty Mentors</h4>
+            <p>Experienced subject mentors who provide direct step-by-step guidance on live practical assignments.</p>
           </div>
 
-          <div class="feature-box">
-            <div class="feature-icon-wrapper">⏰</div>
+          <div class="feature-item-card">
+            <div class="feature-icon-circle">⏰</div>
             <h4>Flexible Batch Timings</h4>
-            <p>Morning, evening, and weekend batches tailored for college students, job seekers, and working professionals balancing career upgrades.</p>
+            <p>Morning, evening, and weekend batches designed for college students, job seekers, and working professionals.</p>
           </div>
         </div>
-
       </div>
     </section>
 
-    <!-- AUTHENTIC CAMPUS FACILITIES -->
-    <section class="section" id="campus">
+    <!-- FEATURED COURSES (EDIFICATION STYLE) -->
+    <section class="section section-alt" id="courses">
       <div class="container">
         
-        <div class="section-header">
-          <span class="section-tag red">Genuine Facilities</span>
-          <h2 class="section-title">Campus & Training Labs</h2>
-          <p class="section-desc">
-            Authentic photographs of our Ottappalam centre at JRJ Complex. Air-conditioned classrooms, dedicated software laboratories, and comfortable student reception.
+        <div class="section-title-wrap">
+          <span class="section-subtitle-tag">Build Your Career</span>
+          <h2 class="section-main-title">Featured Courses</h2>
+          <p class="section-lead-desc">
+            Explore verified career programs in CAD Engineering, Software Development, Multimedia Arts, and Corporate Accounting.
           </p>
         </div>
 
-        <div class="campus-cards-grid">
-          <div class="campus-card">
-            <img src="./reception-lounge.jpg" alt="Reception and Student Counselling Lounge" loading="lazy" />
-            <div class="campus-card-content">
-              <h4>Reception & Counselling Lounge</h4>
-              <p>Comfortable consultation area where prospective students and parents receive one-on-one academic and career guidance.</p>
-            </div>
-          </div>
+        <!-- Category Tabs -->
+        <div class="courses-tabs-nav" role="tablist">
+          <button type="button" class="course-tab-pill active" data-category="all" onclick="setCategory('all')">All Courses</button>
+          <button type="button" class="course-tab-pill" data-category="cad" onclick="setCategory('cad')">CAD & Engineering</button>
+          <button type="button" class="course-tab-pill" data-category="software" onclick="setCategory('software')">Software & IT</button>
+          <button type="button" class="course-tab-pill" data-category="multimedia" onclick="setCategory('multimedia')">Multimedia & VFX</button>
+          <button type="button" class="course-tab-pill" data-category="accounting" onclick="setCategory('accounting')">Corporate Accounting & SAP</button>
+        </div>
 
-          <div class="campus-card">
-            <img src="./training-lab-wide.jpg" alt="High-Performance Computer Training Lab" loading="lazy" />
-            <div class="campus-card-content">
-              <h4>Computer Training Laboratory</h4>
-              <p>Spacious, fully network-equipped computer lab running authentic CAD, programming environments, and enterprise ERP tools.</p>
+        <!-- Dynamic Courses Grid (Pre-rendered for instant SEO) -->
+        <div class="courses-grid-layout" id="courses-grid">
+          
+          <article class="edification-course-card">
+            <div class="course-card-top" style="background-image: url('./student-workstation.jpg');">
+              <span class="course-category-badge">CAD</span>
+              <span class="course-duration-badge">3 Months</span>
             </div>
-          </div>
+            <div class="course-card-body">
+              <h3><a href="#courses" onclick="openCourseModal('cad-revit-architecture')">Certificate Course in Revit Architecture</a></h3>
+              <p class="course-card-desc">Architectural BIM modeling, parametric family creation, construction documentation, and photorealistic 3D visualization.</p>
+              <div class="course-tools-deck">
+                <span class="tool-chip">Autodesk Revit</span>
+                <span class="tool-chip">BIM</span>
+                <span class="tool-chip">3D Modeling</span>
+              </div>
+            </div>
+            <div class="course-card-footer">
+              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('cad-revit-architecture')">View Syllabus</button>
+              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Revit%20Architecture." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+            </div>
+          </article>
 
-          <div class="campus-card">
-            <img src="./student-workstation.jpg" alt="Dedicated Student Workstation" loading="lazy" />
-            <div class="campus-card-content">
-              <h4>Individual Workstations</h4>
-              <p>Ergonomic personal workstations providing fast hardware, high-speed Internet connectivity, and undisturbed practical sessions.</p>
+          <article class="edification-course-card">
+            <div class="course-card-top" style="background-image: url('./students-coding-lab.jpg');">
+              <span class="course-category-badge">SOFTWARE</span>
+              <span class="course-duration-badge">6 Months</span>
             </div>
-          </div>
+            <div class="course-card-body">
+              <h3><a href="#courses" onclick="openCourseModal('sw-python-fullstack')">Full-Stack Web Developer - Python</a></h3>
+              <p class="course-card-desc">End-to-end full-stack web engineering with Python, Django, REST APIs, PostgreSQL, HTML5, CSS3, JavaScript, and Git.</p>
+              <div class="course-tools-deck">
+                <span class="tool-chip">Python</span>
+                <span class="tool-chip">Django</span>
+                <span class="tool-chip">PostgreSQL</span>
+                <span class="tool-chip">REST APIs</span>
+              </div>
+            </div>
+            <div class="course-card-footer">
+              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('sw-python-fullstack')">View Syllabus</button>
+              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Python%20Full%20Stack." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+            </div>
+          </article>
+
+          <article class="edification-course-card">
+            <div class="course-card-top" style="background-image: url('./students-learning.jpg');">
+              <span class="course-category-badge">MULTIMEDIA</span>
+              <span class="course-duration-badge">3 Months</span>
+            </div>
+            <div class="course-card-body">
+              <h3><a href="#courses" onclick="openCourseModal('mm-video-editing')">Diploma In Video Editing</a></h3>
+              <p class="course-card-desc">Professional non-linear video editing, color grading, multi-camera sequencing, and audio mastering.</p>
+              <div class="course-tools-deck">
+                <span class="tool-chip">Premiere Pro</span>
+                <span class="tool-chip">After Effects</span>
+                <span class="tool-chip">Audition</span>
+              </div>
+            </div>
+            <div class="course-card-footer">
+              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('mm-video-editing')">View Syllabus</button>
+              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20Video%20Editing." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+            </div>
+          </article>
+
+          <article class="edification-course-card">
+            <div class="course-card-top" style="background-image: url('./training-lab-perspective.jpg');">
+              <span class="course-category-badge">ACCOUNTING</span>
+              <span class="course-duration-badge">3 Months</span>
+            </div>
+            <div class="course-card-body">
+              <h3><a href="#courses" onclick="openCourseModal('acc-sap-fico')">Certificate in SAP Finance and Control (S/4 HANA)</a></h3>
+              <p class="course-card-desc">Enterprise finance on the SAP S/4HANA engine covering General Ledger, Accounts Payable, Receivable, and Asset Accounting.</p>
+              <div class="course-tools-deck">
+                <span class="tool-chip">SAP S/4HANA</span>
+                <span class="tool-chip">SAP FICO</span>
+                <span class="tool-chip">General Ledger</span>
+              </div>
+            </div>
+            <div class="course-card-footer">
+              <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('acc-sap-fico')">View Syllabus</button>
+              <a href="https://wa.me/916238843939?text=Hello%20G-TEC%20Ottappalam%2C%20I%20would%20like%20to%20know%20more%20about%20SAP%20FICO." target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">WhatsApp</a>
+            </div>
+          </article>
+
         </div>
 
       </div>
     </section>
 
-    <!-- ABOUT SECTION -->
-    <section class="section section-alt" id="about">
+    <!-- ABOUT SECTION (EDIFICATION STYLE) -->
+    <section class="section" id="about">
       <div class="container">
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 5vw, 4rem); align-items: center;">
+        <div class="about-spread-grid">
           <div>
-            <span class="section-tag">About The Centre</span>
-            <h2 style="font-size: clamp(2rem, 3.5vw, 2.8rem); margin-bottom: 1.25rem;">
-              Skills That Turn Creativity Into Possibility.
+            <span class="section-subtitle-tag">About The Centre</span>
+            <h2 class="section-main-title">
+              Skills That Turn Creativity Into <span>Possibility</span>
             </h2>
-            <p style="margin-bottom: 1.25rem; font-size: 1.05rem;">
-              G-TEC Education, Ottappalam is a premier regional learning centre located at JRJ Complex on Thozhupadam–Ottappalam Road. We provide verified vocational education across software development, computer-aided design (CAD), multimedia arts, and corporate financial accounting.
+            <p style="margin-bottom: 15px; font-size: 15.5px;">
+              G-TEC Education, Ottappalam is a premier regional learning centre located at JRJ Complex on Thozhupadam–Ottappalam Road. We provide hands-on vocational training across software development, computer-aided design (CAD), multimedia arts, and corporate financial accounting.
             </p>
-            <p style="margin-bottom: 2rem;">
+            <p style="margin-bottom: 25px; font-size: 15px;">
               Our learning environment bridges theoretical fundamentals with direct practical laboratory practice. From full-stack coding to architectural BIM modeling, graphic publishing, and enterprise SAP solutions, students gain authentic skills designed for modern career pathways.
             </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp">
+            <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+              <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
                 <span>WhatsApp Admissions</span>
               </a>
               <a href="tel:+919995955501" class="btn btn-outline">
@@ -464,10 +340,51 @@
             </div>
           </div>
 
-          <div>
-            <img src="./training-lab-perspective.jpg" alt="Classroom and lab environment at G-TEC Ottappalam" style="border-radius: var(--radius-lg); box-shadow: var(--shadow-card-hover); border: 1px solid var(--border-light);" />
+          <div class="about-photo-wrapper">
+            <img src="./training-lab-wide.jpg" alt="Computer Training Lab at G-TEC Ottappalam" width="600" height="420" />
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- CAMPUS SHOWCASE -->
+    <section class="section section-alt" id="campus">
+      <div class="container">
+        
+        <div class="section-title-wrap">
+          <span class="section-subtitle-tag">Authentic Campus</span>
+          <h2 class="section-main-title">Campus & Training Labs</h2>
+          <p class="section-lead-desc">
+            Authentic photographs of our Ottappalam facilities at JRJ Complex. Air-conditioned classrooms, dedicated software laboratories, and comfortable student reception.
+          </p>
+        </div>
+
+        <div class="campus-gallery-deck">
+          <div class="campus-thumb-card">
+            <img src="./reception-lounge.jpg" alt="Reception and Counselling Lounge" loading="lazy" />
+            <div class="campus-caption-box">
+              <h4>Reception & Counselling Lounge</h4>
+              <p>Comfortable consultation area where students receive one-on-one academic guidance.</p>
+            </div>
+          </div>
+
+          <div class="campus-thumb-card">
+            <img src="./training-lab-perspective.jpg" alt="Computer Training Lab" loading="lazy" />
+            <div class="campus-caption-box">
+              <h4>Computer Training Laboratory</h4>
+              <p>Fully network-equipped lab running authentic CAD, programming, and SAP software.</p>
+            </div>
+          </div>
+
+          <div class="campus-thumb-card">
+            <img src="./student-workstation.jpg" alt="Dedicated Student Workstation" loading="lazy" />
+            <div class="campus-caption-box">
+              <h4>Individual Workstations</h4>
+              <p>Ergonomic personal stations providing fast hardware and uninterrupted practical sessions.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -475,20 +392,20 @@
     <section class="section" id="contact">
       <div class="container">
         
-        <div class="section-header">
-          <span class="section-tag">Get In Touch</span>
-          <h2 class="section-title">Visit Our Ottappalam Centre</h2>
-          <p class="section-desc">
-            Walk in for free career counselling, syllabus reviews, and lab demonstrations. Our centre is conveniently situated at JRJ Complex on Thozhupadam–Ottappalam Road.
+        <div class="section-title-wrap">
+          <span class="section-subtitle-tag">Get In Touch</span>
+          <h2 class="section-main-title">Visit Our Ottappalam Centre</h2>
+          <p class="section-lead-desc">
+            Walk in for free career counselling, course syllabi, and lab demonstrations. Conveniently located on Thozhupadam–Ottappalam Road.
           </p>
         </div>
 
-        <div class="contact-grid">
+        <div class="contact-section-grid">
           
-          <div class="contact-info-panel">
+          <div class="contact-details-box">
             <div>
-              <div class="contact-row">
-                <div class="contact-icon">📍</div>
+              <div class="contact-info-entry">
+                <div class="contact-entry-icon">📍</div>
                 <div>
                   <h5>Campus Address</h5>
                   <p>
@@ -499,45 +416,45 @@
                 </div>
               </div>
 
-              <div class="contact-row">
-                <div class="contact-icon">📞</div>
+              <div class="contact-info-entry">
+                <div class="contact-entry-icon">📞</div>
                 <div>
                   <h5>Telephone Enquiries</h5>
-                  <p><a href="tel:+919995955501" style="font-weight: 700; color: var(--color-primary);">+91 99959 55501</a></p>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">Direct phone line for admissions and fees</p>
+                  <p><a href="tel:+919995955501" style="font-weight: 700; color: var(--color-navy);">+91 99959 55501</a></p>
+                  <p style="font-size: 13px; color: var(--text-muted);">Direct phone line for admissions and fees</p>
                 </div>
               </div>
 
-              <div class="contact-row">
-                <div class="contact-icon">💬</div>
+              <div class="contact-info-entry">
+                <div class="contact-entry-icon">💬</div>
                 <div>
                   <h5>WhatsApp Admissions</h5>
                   <p><a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" style="font-weight: 700; color: var(--color-whatsapp);">+91 62388 43939 (Click to Chat)</a></p>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">Instant course brochures and syllabus delivery</p>
+                  <p style="font-size: 13px; color: var(--text-muted);">Instant course brochures and syllabus delivery</p>
                 </div>
               </div>
 
-              <div class="contact-row">
-                <div class="contact-icon">✉️</div>
+              <div class="contact-info-entry">
+                <div class="contact-entry-icon">✉️</div>
                 <div>
                   <h5>Email Contact</h5>
                   <p><a href="mailto:ottappalam.pkd@gteceducation.com">ottappalam.pkd@gteceducation.com</a></p>
                 </div>
               </div>
 
-              <div class="contact-row">
-                <div class="contact-icon">🕒</div>
+              <div class="contact-info-entry">
+                <div class="contact-entry-icon">🕒</div>
                 <div>
                   <h5>Centre Working Hours</h5>
                   <p>Monday – Saturday: 8:30 AM – 6:30 PM IST</p>
-                  <p style="font-size: 0.85rem; color: var(--text-muted);">Sunday: Closed</p>
+                  <p style="font-size: 13px; color: var(--text-muted);">Sunday: Closed</p>
                 </div>
               </div>
             </div>
 
-            <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 1.5rem;">
+            <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px;">
               <a href="https://maps.app.goo.gl/fbnyT27gH3FD3fjV9" target="_blank" rel="noopener noreferrer" class="btn btn-navy btn-sm">
-                <span>Open in Google Maps ↗</span>
+                <span>Google Maps Directions ↗</span>
               </a>
               <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
                 <span>Chat on WhatsApp</span>
@@ -546,7 +463,7 @@
           </div>
 
           <!-- Embedded Map -->
-          <div class="map-card">
+          <div class="contact-map-embed">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.824287848695!2d76.3762886!3d10.7711467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba7d56e9c6806ef%3A0xebe76214041b3117!2sG-TEC%20EDUCATION%20OTTAPALAM!5e0!3m2!1sen!2sin!4v1718000000000!5m2!1sen!2sin" 
               title="G-TEC Education Ottappalam Google Map Location"
@@ -562,23 +479,23 @@
 
   </main>
 
-  <!-- GROUNDED EXECUTIVE FOOTER -->
+  <!-- GROUNDED EDIFICATION FOOTER -->
   <footer class="site-footer">
     <div class="container">
       
-      <div class="footer-grid">
+      <div class="footer-columns-grid">
         <div class="footer-col">
-          <a href="#hero" style="display: inline-block; margin-bottom: 1.25rem;">
-            <img src="./gtec-logo-white.png" alt="G-TEC Education Ottappalam" style="height: 42px; width: auto;" />
+          <a href="#hero" style="display: inline-block; margin-bottom: 20px;">
+            <img src="./gtec-logo-white.png" alt="G-TEC Education Ottappalam" style="height: 44px; width: auto;" />
           </a>
-          <p style="color: #94A3B8; font-size: 0.92rem; line-height: 1.65; max-width: 360px; margin-bottom: 1.5rem;">
+          <p style="color: #A0B0C8; font-size: 13.5px; line-height: 1.7; max-width: 350px; margin-bottom: 20px;">
             Centre of excellence for computer software engineering, architectural CAD design, creative multimedia, and corporate finance accounting in Ottappalam, Kerala.
           </p>
-          <div style="display: flex; gap: 0.6rem;">
-            <a href="https://www.instagram.com/gtecottapalam/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="color: #FFF; border-color: rgba(255,255,255,0.2);">
+          <div style="display: flex; gap: 8px;">
+            <a href="https://www.instagram.com/gtecottapalam/?hl=en" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="color: #FFF; border-color: rgba(255,255,255,0.25);">
               Instagram
             </a>
-            <a href="https://www.facebook.com/gtecotp/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="color: #FFF; border-color: rgba(255,255,255,0.2);">
+            <a href="https://www.facebook.com/gtecotp/" target="_blank" rel="noopener noreferrer" class="btn btn-outline btn-sm" style="color: #FFF; border-color: rgba(255,255,255,0.25);">
               Facebook
             </a>
           </div>
@@ -586,8 +503,8 @@
 
         <div class="footer-col">
           <h5>Technical Streams</h5>
-          <ul class="footer-links">
-            <li><a href="#courses" onclick="setCategory('cad')">CAD & BIM Engineering</a></li>
+          <ul class="footer-links-deck">
+            <li><a href="#courses" onclick="setCategory('cad')">CAD & Engineering</a></li>
             <li><a href="#courses" onclick="setCategory('software')">Software & Web Development</a></li>
             <li><a href="#courses" onclick="setCategory('multimedia')">Multimedia & Motion Graphics</a></li>
             <li><a href="#courses" onclick="setCategory('accounting')">Corporate Accounting & SAP</a></li>
@@ -596,25 +513,25 @@
         </div>
 
         <div class="footer-col">
-          <h5>Navigation</h5>
-          <ul class="footer-links">
+          <h5>Quick Navigation</h5>
+          <ul class="footer-links-deck">
             <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About Centre</a></li>
             <li><a href="#courses">Courses Catalogue</a></li>
             <li><a href="#features">Why G-TEC</a></li>
             <li><a href="#campus">Campus Facilities</a></li>
-            <li><a href="#about">About Centre</a></li>
             <li><a href="#contact">Location & Map</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h5>Ottappalam Centre</h5>
-          <address style="font-style: normal; color: #94A3B8; font-size: 0.9rem; line-height: 1.6; margin-bottom: 1rem;">
+          <address style="font-style: normal; color: #A0B0C8; font-size: 13.5px; line-height: 1.6; margin-bottom: 15px;">
             Second Floor, JRJ Complex,<br />
             Thozhupadam–Ottappalam Road,<br />
             Ottappalam, Kerala 679101, India.
           </address>
-          <div style="font-size: 0.9rem; color: #CBD5E1; display: flex; flex-direction: column; gap: 0.35rem;">
+          <div style="font-size: 13.5px; color: #CBD5E1; display: flex; flex-direction: column; gap: 5px;">
             <div>Phone: <a href="tel:+919995955501" style="color: #FFF; font-weight: 700;">+91 99959 55501</a></div>
             <div>WhatsApp: <a href="https://wa.me/916238843939" target="_blank" rel="noopener noreferrer" style="color: var(--color-whatsapp); font-weight: 700;">+91 62388 43939</a></div>
             <div>Email: <a href="mailto:ottappalam.pkd@gteceducation.com" style="color: #FFF;">ottappalam.pkd@gteceducation.com</a></div>
@@ -622,7 +539,7 @@
         </div>
       </div>
 
-      <div class="footer-bottom">
+      <div class="footer-bottom-strap">
         <div>
           &copy; 2026 G-TEC Education, Ottappalam. All rights reserved.
         </div>

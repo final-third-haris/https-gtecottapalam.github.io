@@ -633,25 +633,32 @@ function renderCourses() {
     return;
   }
 
+    const categoryImages = {
+    cad: "./student-workstation.jpg",
+    software: "./students-coding-lab.jpg",
+    multimedia: "./students-learning.jpg",
+    accounting: "./training-lab-perspective.jpg"
+  };
+
   grid.innerHTML = filtered.map(c => `
-    <article class="course-card" id="card-${c.id}">
-      <div>
-        <div class="course-badge-row">
-          <span class="badge-tag ${c.category}">${c.category.toUpperCase()}</span>
-          <span class="duration-pill">${c.duration || "Verified Track"}</span>
-        </div>
-        <h3>${c.name}</h3>
+    <article class="edification-course-card" id="card-${c.id}">
+      <div class="course-card-top" style="background-image: url('${categoryImages[c.category] || "./training-lab-wide.jpg"}');">
+        <span class="course-category-badge">${c.category.toUpperCase()}</span>
+        <span class="course-duration-badge">${c.duration || "Verified Track"}</span>
+      </div>
+      <div class="course-card-body">
+        <h3><a href="#courses" onclick="openCourseModal('${c.id}')">${c.name}</a></h3>
         <p class="course-card-desc">${c.description || "Comprehensive hands-on training curriculum aligned with international industry standards."}</p>
         
         ${c.tools && c.tools.length > 0 ? `
-          <div class="course-tools-group">
-            ${c.tools.slice(0, 4).map(t => `<span class="tool-tag">${t}</span>`).join("")}
-            ${c.tools.length > 4 ? `<span class="tool-tag">+${c.tools.length - 4} more</span>` : ""}
+          <div class="course-tools-deck">
+            ${c.tools.slice(0, 4).map(t => `<span class="tool-chip">${t}</span>`).join("")}
+            ${c.tools.length > 4 ? `<span class="tool-chip">+${c.tools.length - 4} more</span>` : ""}
           </div>
         ` : ""}
       </div>
 
-      <div class="course-card-actions">
+      <div class="course-card-footer">
         <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('${c.id}')">
           <span>View Syllabus</span>
         </button>
@@ -660,7 +667,7 @@ function renderCourses() {
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
             <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766 0-3.18-2.587-5.771-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.694.06-2.12-.533-1.821-.756-2.986-2.614-3.076-2.735-.09-.12-0.739-.983-.739-1.874 0-.891.468-1.328.635-1.507.167-.179.366-.224.488-.224.122 0 .245.002.35.008.113.006.262-.042.411.314.155.371.531 1.296.577 1.39.046.094.077.204.015.327-.061.123-.092.199-.183.307-.091.107-.193.24-.276.323-.092.092-.188.193-.081.378.107.184.475.786 1.021 1.272.703.627 1.296.822 1.48.914.184.092.292.077.4-.046.108-.123.461-.537.584-.722.123-.184.246-.154.414-.092.169.062 1.07.505 1.254.597.184.092.307.138.353.215.046.077.046.447-.098.852z"/>
           </svg>
-          <span>Chat</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </article>
@@ -669,10 +676,9 @@ function renderCourses() {
 
 function setCategory(cat) {
   currentCategory = cat;
-  document.querySelectorAll(".category-filter-btn, .discipline-tab-btn").forEach(btn => {
+  document.querySelectorAll(".course-tab-pill, .category-filter-btn").forEach(btn => {
     const isTarget = btn.getAttribute("data-category") === cat;
     btn.classList.toggle("active", isTarget);
-    btn.setAttribute("aria-selected", isTarget ? "true" : "false");
   });
   renderCourses();
 }
