@@ -146,9 +146,9 @@ button {
 }
 
 .eyebrow-tag {
-  font-family: var(--font-body);
+  font-family: var(--font-display);
   font-size: var(--fs-caption);
-  font-weight: 700;
+  font-weight: 800;
   text-transform: uppercase;
   letter-spacing: var(--tracking-widest);
   color: var(--color-gtec-blue);
@@ -172,10 +172,12 @@ button {
 .section-title {
   font-family: var(--font-display);
   font-size: var(--fs-h1);
-  font-weight: 700;
+  font-weight: 800;
+  letter-spacing: var(--tracking-tighter);
   color: var(--color-gtec-blue);
   line-height: var(--lh-tight);
   margin-bottom: 16px;
+  text-wrap: balance;
 }
 
 .section-title.light {
