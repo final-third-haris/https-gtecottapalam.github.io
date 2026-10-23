@@ -616,22 +616,17 @@ function renderCourses() {
     return matchCat && matchSearch;
   });
 
-  const countBadge = document.getElementById("courses-count-label");
-  if (countBadge) {
-    countBadge.textContent = `${filtered.length} Program${filtered.length === 1 ? "" : "s"} Available`;
-  }
-
   if (filtered.length === 0) {
     grid.innerHTML = `
-      <div style="grid-column: 1 / -1; padding: 4rem 2rem; text-align: center; background: #FFFFFF; border-radius: 20px; border: 1px solid var(--border-hairline);">
-        <p style="font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem;">
-          No matching programs found
+      <div style="grid-column: 1 / -1; padding: 3rem 1.5rem; text-align: center; background: #FFFFFF; border-radius: 12px; border: 1px solid var(--border-light);">
+        <p style="font-size: 1.15rem; font-weight: 700; color: var(--text-heading); margin-bottom: 0.5rem;">
+          No matching courses found
         </p>
-        <p style="font-size: 0.95rem; color: var(--text-secondary); margin-bottom: 1.5rem;">
-          Try searching for a different keyword like "Python", "Revit", "SAP", or "Multimedia".
+        <p style="font-size: 0.95rem; color: var(--text-muted); margin-bottom: 1.25rem;">
+          Try searching for another keyword like "Python", "Revit", "SAP", or "Accounting".
         </p>
-        <button class="btn btn-outline btn-sm" onclick="resetCourseFilters()">
-          Clear All Filters
+        <button class="btn btn-outline btn-sm" onclick="setCategory('all')">
+          Show All Courses
         </button>
       </div>
     `;
@@ -639,30 +634,26 @@ function renderCourses() {
   }
 
   grid.innerHTML = filtered.map(c => `
-    <article class="course-card-premium" id="card-${c.id}">
+    <article class="course-card" id="card-${c.id}">
       <div>
-        <div class="card-top-meta">
-          <span class="course-category-tag">${c.category.toUpperCase()}</span>
-          <span class="course-duration-tag">${c.duration || "Verified Track"}</span>
+        <div class="course-badge-row">
+          <span class="badge-tag ${c.category}">${c.category.toUpperCase()}</span>
+          <span class="duration-pill">${c.duration || "Verified Track"}</span>
         </div>
-        <h3 class="course-name-h3">${c.name}</h3>
-        <p class="course-excerpt">${c.description || "Comprehensive hands-on training curriculum aligned with international industry standards."}</p>
+        <h3>${c.name}</h3>
+        <p class="course-card-desc">${c.description || "Comprehensive hands-on training curriculum aligned with international industry standards."}</p>
         
         ${c.tools && c.tools.length > 0 ? `
-          <div class="tools-pill-group">
-            ${c.tools.slice(0, 4).map(t => `<span class="tool-chip">${t}</span>`).join("")}
-            ${c.tools.length > 4 ? `<span class="tool-chip">+${c.tools.length - 4} more</span>` : ""}
+          <div class="course-tools-group">
+            ${c.tools.slice(0, 4).map(t => `<span class="tool-tag">${t}</span>`).join("")}
+            ${c.tools.length > 4 ? `<span class="tool-tag">+${c.tools.length - 4} more</span>` : ""}
           </div>
         ` : ""}
       </div>
 
-      <div class="card-action-bar">
+      <div class="course-card-actions">
         <button type="button" class="btn btn-navy btn-sm" onclick="openCourseModal('${c.id}')">
-          <span>Explore Syllabus</span>
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="5" y1="12" x2="19" y2="12"></line>
-            <polyline points="12 5 19 12 12 19"></polyline>
-          </svg>
+          <span>View Syllabus</span>
         </button>
         <a href="https://wa.me/916238843939?text=${encodeURIComponent('Hello G-TEC Education Ottappalam, I would like to know more about the ' + c.name + ' course. Please share admission details.')}" 
            target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm" aria-label="Enquire about ${c.name} on WhatsApp">
@@ -678,7 +669,7 @@ function renderCourses() {
 
 function setCategory(cat) {
   currentCategory = cat;
-  document.querySelectorAll(".discipline-tab-btn").forEach(btn => {
+  document.querySelectorAll(".category-filter-btn, .discipline-tab-btn").forEach(btn => {
     const isTarget = btn.getAttribute("data-category") === cat;
     btn.classList.toggle("active", isTarget);
     btn.setAttribute("aria-selected", isTarget ? "true" : "false");
