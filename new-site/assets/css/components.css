@@ -1001,8 +1001,9 @@
   font-family: var(--font-display);
   font-size: clamp(1.8rem, 2.2vw + 0.2rem, 2.35rem);
   font-weight: 800;
+  letter-spacing: var(--tracking-tighter);
   color: var(--color-navy-dark);
-  line-height: 1.15;
+  line-height: 1.12;
   margin-bottom: 12px;
 }
 
@@ -1832,6 +1833,7 @@
   font-family: var(--font-display);
   font-size: clamp(1.2rem, 1.5vw + 0.3rem, 1.55rem);
   font-weight: 800;
+  letter-spacing: var(--tracking-tight);
   color: var(--color-navy-dark);
   margin-bottom: 10px;
   line-height: 1.25;
