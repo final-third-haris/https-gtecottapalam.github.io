@@ -709,43 +709,43 @@ function openCourseModal(courseId) {
   const waUrl = `https://wa.me/916238843939?text=${encodeURIComponent(waMsg)}`;
 
   modalContent.innerHTML = `
-    <div class="modal-sheet-header">
+    <div style="padding: 24px; border-bottom: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: flex-start;">
       <div>
-        <div style="display: flex; gap: 0.6rem; align-items: center; margin-bottom: 0.75rem;">
-          <span class="editorial-badge red">${course.category.toUpperCase()}</span>
-          <span style="font-family: var(--font-mono); font-size: 0.82rem; color: var(--text-muted);">${course.duration || "Flexible Batches"}</span>
+        <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+          <span class="course-category-badge" style="position: static;">${course.category.toUpperCase()}</span>
+          <span style="font-size: 13px; font-weight: 600; color: var(--text-muted);">${course.duration || "Verified Track"}</span>
         </div>
-        <h2 style="font-size: 1.75rem; line-height: 1.15; margin-bottom: 0.5rem;">${course.name}</h2>
-        <p style="font-size: 0.95rem; color: var(--text-secondary); max-width: 580px;">${course.description || "Industry accredited training program designed for practical execution."}</p>
+        <h2 style="font-family: var(--font-serif); font-size: 24px; font-weight: 700; color: var(--color-navy); margin-top: 8px; margin-bottom: 6px;">${course.name}</h2>
+        <p style="font-size: 14px; color: var(--text-body); max-width: 540px;">${course.description || "Industry accredited training program designed for practical execution."}</p>
       </div>
-      <button type="button" class="modal-close-cross" onclick="closeCourseModal()" aria-label="Close modal">&times;</button>
+      <button type="button" style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-heading);" onclick="closeCourseModal()" aria-label="Close modal">&times;</button>
     </div>
 
-    <div class="modal-sheet-body">
+    <div style="padding: 24px;">
       ${course.eligibility ? `
-        <div style="margin-bottom: 1.75rem; background: var(--bg-secondary); padding: 1rem 1.25rem; border-radius: 12px; border: 1px solid var(--border-hairline);">
-          <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; color: var(--text-primary);">Eligibility:</span>
-          <span style="font-size: 0.92rem; color: var(--text-secondary); margin-left: 0.5rem;">${course.eligibility}</span>
+        <div style="margin-bottom: 20px; background: var(--bg-alt); padding: 12px 16px; border-radius: 8px; border: 1px solid var(--border-color);">
+          <strong style="font-size: 13px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--color-navy);">Eligibility:</strong>
+          <span style="font-size: 14px; color: var(--text-body); margin-left: 6px;">${course.eligibility}</span>
         </div>
       ` : ""}
 
       ${course.tools && course.tools.length > 0 ? `
-        <div style="margin-bottom: 2rem;">
-          <h4 style="font-size: 1rem; margin-bottom: 0.75rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em;">Software & Tools Mastered</h4>
-          <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
-            ${course.tools.map(t => `<span class="tool-chip" style="font-size: 0.8rem; padding: 0.35rem 0.8rem; background: #FFFFFF;">${t}</span>`).join("")}
+        <div style="margin-bottom: 22px;">
+          <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; color: var(--color-navy);">Software & Tools Covered</h4>
+          <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+            ${course.tools.map(t => `<span class="tool-chip" style="font-size: 12px; padding: 4px 10px;">${t}</span>`).join("")}
           </div>
         </div>
       ` : ""}
 
       ${course.modules && course.modules.length > 0 ? `
         <div>
-          <h4 style="font-size: 1rem; margin-bottom: 1rem; font-family: var(--font-mono); text-transform: uppercase; letter-spacing: 0.05em;">Curriculum Modules</h4>
-          <div style="display: grid; gap: 0.6rem;">
+          <h4 style="font-size: 14px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; color: var(--color-navy);">Curriculum Modules</h4>
+          <div style="display: grid; gap: 8px;">
             ${course.modules.map((m, idx) => `
-              <div style="display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 1rem; background: #FFFFFF; border: 1px solid var(--border-hairline); border-radius: 10px;">
-                <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 700; color: var(--accent-red); margin-top: 2px;">0${idx+1}.</span>
-                <span style="font-size: 0.95rem; color: var(--text-primary); font-weight: 500;">${m}</span>
+              <div style="display: flex; gap: 10px; align-items: flex-start; padding: 10px 14px; background: #FFFFFF; border: 1px solid var(--border-color); border-radius: 6px;">
+                <span style="font-size: 12px; font-weight: 700; color: var(--color-navy); margin-top: 2px;">0${idx+1}.</span>
+                <span style="font-size: 14px; color: var(--text-body); font-weight: 500;">${m}</span>
               </div>
             `).join("")}
           </div>
@@ -753,16 +753,16 @@ function openCourseModal(courseId) {
       ` : ""}
     </div>
 
-    <div class="modal-sheet-footer">
-      <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted);">
+    <div style="padding: 16px 24px; background: #FAFAFA; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+      <div style="font-size: 13px; color: var(--text-muted);">
         Certified at G-TEC Ottappalam • JRJ Complex
       </div>
-      <div style="display: flex; gap: 0.75rem;">
+      <div style="display: flex; gap: 10px;">
         <a href="tel:+919995955501" class="btn btn-outline btn-sm">
-          <span>Call: 9995955501</span>
+          <span>Call 9995955501</span>
         </a>
         <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-          <span>Enquire on WhatsApp</span>
+          <span>WhatsApp Enquiry</span>
         </a>
       </div>
     </div>
