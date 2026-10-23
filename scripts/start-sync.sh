@@ -17,15 +17,15 @@ if [ -f "$PID_FILE" ]; then
 fi
 
 echo "🚀 Starting G-TEC Auto Git Sync Daemon in background..."
-nohup python3 scripts/auto-git-sync.py >> "$LOG_FILE" 2>&1 &
+nohup /usr/bin/python3 -u scripts/auto-git-sync.py </dev/null >> "$LOG_FILE" 2>&1 &
 NEW_PID=$!
-echo "$NEW_PID" > "$PID_FILE"
+disown "$NEW_PID" 2>/dev/null || true
 
 sleep 1
 
 if ps -p "$NEW_PID" > /dev/null 2>&1; then
-  echo "✅ Auto Git Sync Daemon is now running with PID $NEW_PID."
-  echo "Any edits made in Antigravity or saved locally will automatically be uploaded to GitHub!"
+  echo "✅ Auto Git Sync Daemon is running with PID $NEW_PID."
+  echo "Every change made in Antigravity or saved locally will automatically upload to GitHub!"
   echo ""
   echo "Helpful commands:"
   echo "  Check status:   ./scripts/status-sync.sh"

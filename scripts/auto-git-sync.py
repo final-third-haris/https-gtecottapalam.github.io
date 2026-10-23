@@ -8,14 +8,20 @@ and automatically commits and pushes them to GitHub with an intelligent debounce
 import os
 import sys
 import time
+import signal
 import subprocess
 from datetime import datetime
+
+# Prevent process termination when the launching terminal disconnects
+if hasattr(signal, "SIGHUP"):
+    signal.signal(signal.SIGHUP, signal.SIG_IGN)
 
 # Root workspace directory (parent of scripts/)
 REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBOUNCE_SECONDS = 8      # Wait 8s of inactivity after last edit before committing/pushing
 POLL_INTERVAL_SECONDS = 3 # Check for changes every 3 seconds
 LOG_FILE = os.path.join(REPO_DIR, "auto-sync.log")
+PID_FILE = os.path.join(REPO_DIR, ".auto-sync.pid")
 BRANCH = "main"
 REMOTE = "origin"
 
@@ -23,11 +29,6 @@ def log(msg):
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     formatted = f"[{timestamp}] {msg}"
     print(formatted, flush=True)
-    try:
-        with open(LOG_FILE, "a", encoding="utf-8") as f:
-            f.write(formatted + "\n")
-    except Exception:
-        pass
 
 def run_git(args, check=True):
     return subprocess.run(
@@ -43,7 +44,12 @@ def get_git_status():
         res = run_git(["status", "--porcelain"], check=False)
         if res.returncode == 0:
             lines = [l.strip() for l in res.stdout.strip().split("\n") if l.strip()]
-            return lines
+            # Filter out ignored internal log and pid files if not in gitignore
+            filtered = [
+                l for l in lines 
+                if not any(f in l for f in ["auto-sync.log", ".auto-sync.pid", ".DS_Store"])
+            ]
+            return filtered
     except Exception as e:
         log(f"Error checking git status: {e}")
     return []
@@ -98,7 +104,6 @@ def sync_to_github(status_lines):
         return True
     else:
         log(f"Push failed (exit {res_push.returncode}): {res_push.stderr.strip()}")
-        # Check if remote has new commits, attempt rebase pull
         log("Attempting git pull --rebase to synchronize...")
         res_pull = run_git(["pull", "--rebase", REMOTE, BRANCH], check=False)
         if res_pull.returncode == 0:
@@ -110,7 +115,24 @@ def sync_to_github(status_lines):
         log(f"❌ Could not push to GitHub. Will retry on next cycle. Error: {res_push.stderr.strip()}")
         return False
 
+def cleanup_pid():
+    try:
+        if os.path.exists(PID_FILE):
+            with open(PID_FILE, "r") as f:
+                stored = f.read().strip()
+            if stored == str(os.getpid()):
+                os.remove(PID_FILE)
+    except Exception:
+        pass
+
 def main():
+    # Record PID
+    try:
+        with open(PID_FILE, "w") as f:
+            f.write(str(os.getpid()))
+    except Exception as e:
+        log(f"Warning: could not write PID file: {e}")
+
     log(f"🚀 G-TEC Auto Git Sync Daemon active for {REPO_DIR}")
     log(f"Target remote: {REMOTE} | Branch: {BRANCH} | Debounce: {DEBOUNCE_SECONDS}s")
 
@@ -118,8 +140,8 @@ def main():
     change_first_seen_time = None
     last_change_time = None
 
-    while True:
-        try:
+    try:
+        while True:
             status_lines = get_git_status()
             current_state = tuple(status_lines)
 
@@ -148,12 +170,12 @@ def main():
                 last_change_time = None
 
             time.sleep(POLL_INTERVAL_SECONDS)
-        except KeyboardInterrupt:
-            log("Stopping Auto Git Sync Daemon (KeyboardInterrupt). Goodbye!")
-            sys.exit(0)
-        except Exception as e:
-            log(f"Unexpected error in sync daemon loop: {e}")
-            time.sleep(POLL_INTERVAL_SECONDS)
+    except KeyboardInterrupt:
+        log("Stopping Auto Git Sync Daemon (KeyboardInterrupt). Goodbye!")
+    except Exception as e:
+        log(f"Fatal error in sync daemon loop: {e}")
+    finally:
+        cleanup_pid()
 
 if __name__ == "__main__":
     main()
