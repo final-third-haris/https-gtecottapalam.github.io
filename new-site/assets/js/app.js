@@ -329,12 +329,15 @@ export function openCourseModal(courseId) {
       <div style="font-size: 13px; color: var(--color-slate-muted);">
         Verified Curriculum • JRJ Complex, Ottappalam
       </div>
-      <div style="display: flex; gap: 10px;">
+      <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap;">
+        <a href="./course-detail.html?id=${course.id}" class="btn btn-navy btn-sm">
+          <span>Full Syllabus Page &rarr;</span>
+        </a>
         <a href="${siteConfig.phoneTel}" class="btn btn-outline btn-sm">
           <span>Call 9995955501</span>
         </a>
         <a href="${waUrl}" target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-sm">
-          <span>WhatsApp Enquiry</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </div>
